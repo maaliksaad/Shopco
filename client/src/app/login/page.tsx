@@ -14,12 +14,27 @@ import { FaGoogle, FaGithub, FaDiscord } from 'react-icons/fa';
 
 export default function LoginPage() {
     const { handleLogin, isLoginLoading } = useAuthSession();
+    const router = useRouter();
+    const searchParams = useSearchParams();
 
-    const { register, handleSubmit, formState: { errors }, setError } = useForm<LoginFormData>({
+    const { register, handleSubmit, formState: { errors }, setError, setValue, setFocus } = useForm<LoginFormData>({
         resolver: yupResolver(loginSchema),
     });
 
-    const searchParams = useSearchParams();
+    const demoUsers = [
+        { name: 'S-Admin', email: 'admin@shopco.com', password: 'Password123!', role: 'SUPER_ADMIN' },
+        { name: 'Admin', email: 'manager@shopco.com', password: 'Password123!', role: 'ADMIN' },
+        { name: 'User', email: 'user@shopco.com', password: 'Password123!', role: 'USER' },
+    ];
+
+    const handleDemoLogin = (email: string, pass: string) => {
+        setValue('email', email);
+        setValue('password', pass);
+        // Scroll to top of form and focus email
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => setFocus('email'), 100);
+    };
+
     const oauthError = searchParams.get('error');
 
     useEffect(() => {
@@ -31,7 +46,7 @@ export default function LoginPage() {
     const onSubmit = async (data: LoginFormData) => {
         try {
             await handleLogin(data);
-            toast.success('Welcome back! 👋');
+            toast.success('Welcome back!');
         } catch (err: any) {
             const message = err?.data?.message || "Login failed. Please check your credentials.";
             toast.error(message);
@@ -163,6 +178,25 @@ export default function LoginPage() {
                             Create an account
                         </Link>
                     </p>
+                </div>
+
+                <div className="pt-6 border-t border-gray-100">
+                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest text-center mb-4">
+                        Quick Demo Access
+                    </p>
+                    <div className="grid grid-cols-3 gap-3">
+                        {demoUsers.map((user) => (
+                            <button
+                                key={user.email}
+                                onClick={() => handleDemoLogin(user.email, user.password)}
+                                className="flex flex-col items-center justify-center py-2.5 border border-gray-200 rounded-xl hover:bg-black hover:text-white transition-all group"
+                                title={`Login as ${user.name}`}
+                            >
+                                <span className="text-[10px] font-black uppercase tracking-tighter">{user.name}</span>
+                                <span className="text-[8px] opacity-60 font-bold uppercase tracking-widest group-hover:text-gray-300">{user.role.replace('_', ' ')}</span>
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

@@ -259,15 +259,31 @@ async function seed() {
             console.log('Database connection established but DB object is missing. Skipping cleanup.');
         }
 
-        console.log('Seeding super admin...');
+        console.log('Seeding demo users...');
         const hashedPassword = await bcrypt.hash('Password123!', 10);
-        await User.create({
-            name: 'Super Admin',
-            email: 'admin@shopco.com',
-            password: hashedPassword,
-            role: 'SUPER_ADMIN',
-        });
-        console.log('Super admin seeded.');
+        
+        await User.create([
+            {
+                name: 'Super Admin',
+                email: 'admin@shopco.com',
+                password: hashedPassword,
+                role: 'SUPER_ADMIN',
+            },
+            {
+                name: 'Shop Manager',
+                email: 'manager@shopco.com',
+                password: hashedPassword,
+                role: 'ADMIN',
+            },
+            {
+                name: 'Test Customer',
+                email: 'user@shopco.com',
+                password: hashedPassword,
+                role: 'USER',
+                loyaltyPoints: 500,
+            }
+        ]);
+        console.log('Demo users seeded.');
 
         console.log('Seeding products...');
         await Product.insertMany(products);
