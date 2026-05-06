@@ -21,7 +21,7 @@ export const StatsCards = () => {
     const cards = [
         {
             title: 'Total Sales',
-            value: `₹${stats.totalRevenue.toLocaleString()}`,
+            value: `$${stats.totalRevenue.toLocaleString()}`,
             change: '+34.7%',
             icon: ShoppingBag,
             bgColor: 'bg-[#003B5C]',

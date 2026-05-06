@@ -123,7 +123,7 @@ export const SalesChart = () => {
                 cornerRadius: 8,
                 displayColors: false,
                 callbacks: {
-                    label: (context: any) => `₹${context.parsed.y.toLocaleString()}`,
+                    label: (context: any) => `$${context.parsed.y.toLocaleString()}`,
                 },
             },
         },
@@ -159,7 +159,7 @@ export const SalesChart = () => {
                         weight: 'bold' as const,
                     },
                     padding: 10,
-                    callback: (value: any) => `₹${value.toLocaleString()}`,
+                    callback: (value: any) => `$${value.toLocaleString()}`,
                 },
             },
         },

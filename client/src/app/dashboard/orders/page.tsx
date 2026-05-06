@@ -215,7 +215,7 @@ export default function OrdersListPage() {
                                             </td>
                                             <td className="py-5 px-8 text-right">
                                                 <div className="flex flex-col items-end">
-                                                    <span className="font-black text-gray-900 text-[13px]">₹{(order.totalAmount || 0).toLocaleString()}</span>
+                                                    <span className="font-black text-gray-900 text-[13px]">${(order.totalAmount || 0).toLocaleString()}</span>
                                                     {order.pointsUsed > 0 && (
                                                         <span className="text-[10px] font-bold text-violet-500">
                                                             {order.pointsUsed.toLocaleString()} pts

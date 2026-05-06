@@ -60,11 +60,11 @@ export const BestSellers = () => {
                                 </div>
                                 <div className="min-w-0">
                                     <p className="font-bold text-gray-900 text-sm truncate">{product.name}</p>
-                                    <p className="text-xs text-gray-400">₹{product.revenue.toLocaleString()}</p>
+                                    <p className="text-xs text-gray-400">${product.revenue.toLocaleString()}</p>
                                 </div>
                             </div>
                             <div className="text-right shrink-0">
-                                <p className="font-bold text-gray-900 text-sm">₹{product.revenue.toLocaleString()}</p>
+                                <p className="font-bold text-gray-900 text-sm">${product.revenue.toLocaleString()}</p>
                                 <p className="text-[10px] text-gray-400">{product.sales} sales</p>
                             </div>
                         </div>

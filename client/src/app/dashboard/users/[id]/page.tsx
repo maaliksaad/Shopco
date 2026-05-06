@@ -195,7 +195,7 @@ export default function UserDetailsPage() {
                             </div>
                             <div>
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Total Spent</p>
-                                <p className="text-xl font-black text-gray-900">₹{(user.totalSpent || 0).toLocaleString()}</p>
+                                <p className="text-xl font-black text-gray-900">${(user.totalSpent || 0).toLocaleString()}</p>
                             </div>
                         </div>
                         <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center space-x-4 transition-transform hover:scale-[1.02]">
@@ -295,7 +295,7 @@ export default function UserDetailsPage() {
                                                     </td>
                                                     <td className="py-4 px-6 text-right">
                                                         <div className="flex flex-col items-end">
-                                                            <span className="font-black text-gray-900 text-[12px]">₹{(order.totalAmount || 0).toLocaleString()}</span>
+                                                            <span className="font-black text-gray-900 text-[12px]">${(order.totalAmount || 0).toLocaleString()}</span>
                                                             {order.pointsUsed > 0 && (
                                                                 <span className="text-[9px] font-bold text-violet-500">
                                                                     {order.pointsUsed.toLocaleString()} pts

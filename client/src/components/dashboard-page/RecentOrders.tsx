@@ -110,7 +110,7 @@ export const RecentOrders = () => {
                                             </div>
                                         </td>
                                         <td className="py-4 px-4">
-                                            <span className="font-bold text-gray-900 text-sm">₹{(order.totalAmount || 0).toLocaleString()}</span>
+                                            <span className="font-bold text-gray-900 text-sm">${(order.totalAmount || 0).toLocaleString()}</span>
                                         </td>
                                     </tr>
                                 );

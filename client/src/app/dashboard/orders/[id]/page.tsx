@@ -270,7 +270,7 @@ export default function OrderDetailsPage() {
                                                     {(item.productId?.pointsPrice * item.quantity).toLocaleString()} pts
                                                 </span>
                                             ) : (
-                                                <span>₹{(item.price * item.quantity).toLocaleString()}</span>
+                                                <span>${(item.price * item.quantity).toLocaleString()}</span>
                                             )}
                                         </td>
                                     </tr>
@@ -283,7 +283,7 @@ export default function OrderDetailsPage() {
                         <div className="w-full max-w-[280px] space-y-3">
                             <div className="flex justify-between text-[11px] font-bold text-gray-400 uppercase">
                                 <span>Subtotal</span>
-                                <span className="text-gray-900 font-black">₹{order.totalAmount?.toLocaleString() || '0'}</span>
+                                <span className="text-gray-900 font-black">${order.totalAmount?.toLocaleString() || '0'}</span>
                             </div>
 
                             {/* Points Summary */}
@@ -303,7 +303,7 @@ export default function OrderDetailsPage() {
 
                             <div className="flex justify-between text-base font-black text-gray-900 mt-4 uppercase tracking-wider border-t border-gray-100 pt-4">
                                 <span>Total Paid</span>
-                                <span className="text-xl">₹{order.totalAmount?.toLocaleString() || '0'}</span>
+                                <span className="text-xl">${order.totalAmount?.toLocaleString() || '0'}</span>
                             </div>
                         </div>
                     </div>
