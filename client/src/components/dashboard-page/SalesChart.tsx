@@ -93,13 +93,13 @@ export const SalesChart = () => {
         datasets: [
             {
                 data,
-                borderColor: '#4A90E2',
-                backgroundColor: 'rgba(74, 144, 226, 0.1)',
+                borderColor: '#000000',
+                backgroundColor: 'rgba(0, 0, 0, 0.05)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4,
                 pointBackgroundColor: '#ffffff',
-                pointBorderColor: '#4A90E2',
+                pointBorderColor: '#000000',
                 pointBorderWidth: 2,
                 pointRadius: 0,
                 pointHoverRadius: 6,
@@ -116,7 +116,7 @@ export const SalesChart = () => {
                 display: false,
             },
             tooltip: {
-                backgroundColor: '#003B5C',
+                backgroundColor: '#000000',
                 titleColor: '#ffffff',
                 bodyColor: '#ffffff',
                 padding: 12,
@@ -175,7 +175,7 @@ export const SalesChart = () => {
                             key={period.key}
                             onClick={() => setSelectedPeriod(period.key as any)}
                             className={`px-4 py-1.5 rounded-md text-[10px] font-bold transition-all ${selectedPeriod === period.key || (selectedPeriod === 'today' && period.key === 'week')
-                                    ? 'bg-[#003B5C] text-white shadow-sm'
+                                    ? 'bg-black text-white shadow-sm'
                                     : 'text-gray-400 hover:text-gray-600'
                                 }`}
                         >

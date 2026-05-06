@@ -25,6 +25,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import DashboardProfileDropdown from "./DashboardProfileDropdown";
+import { satoshi, integralCF } from "@/styles/fonts";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -59,8 +60,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   if (isLoadingProfile) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#E5E5E5]">
-        <Loader2 className="w-10 h-10 animate-spin text-[#003B5C]" />
+      <div className={cn("flex items-center justify-center min-h-screen bg-[#F0F0F0]", satoshi.className)}>
+        <Loader2 className="w-10 h-10 animate-spin text-black" />
       </div>
     );
   }
@@ -81,14 +82,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     <>
       {/* Logo Area */}
       <div className="p-6 mb-2">
-        <div className="flex items-center space-x-2">
-          <div className="flex items-baseline">
-            <span className="text-2xl font-black text-[#003B5C] italic">Arik</span>
-            <div className="ml-1 w-6 h-4 bg-gray-400 opacity-30 rounded-full rotate-12 flex items-center justify-center">
-              <div className="w-4 h-2 bg-white rounded-full opacity-50" />
-            </div>
-          </div>
-        </div>
+        <Link href="/" className={cn(integralCF.className, "text-2xl font-bold text-black uppercase tracking-tight")}>
+          SHOP.CO
+        </Link>
       </div>
 
       <nav className="px-3 space-y-1 ">
@@ -104,8 +100,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               className={cn(
                 "flex items-center px-4 py-3 rounded-md text-[11px] font-bold transition-colors tracking-wider",
                 isActive
-                  ? "bg-[#003B5C] text-white shadow-md"
-                  : "text-[#6B7280] hover:bg-gray-50"
+                  ? "bg-black text-white shadow-md"
+                  : "text-[#6B7280] hover:bg-gray-100"
               )}
             >
               <Icon className="w-4 h-4 mr-3" />
@@ -148,7 +144,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                       "px-2 py-0.5 rounded-full text-[9px] font-bold transition-colors",
                       isSelected
                         ? "bg-white/20 text-white"
-                        : "bg-gray-100 group-hover:bg-[#003B5C] group-hover:text-white"
+                        : "bg-gray-100 group-hover:bg-black group-hover:text-white"
                     )}
                   >
                     {cat.count}
@@ -183,7 +179,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                   className={cn(
                     "flex items-center justify-between px-3 py-2 text-[11px] rounded cursor-pointer group transition-all",
                     isSelected
-                      ? "bg-[#003B5C] text-white"
+                      ? "bg-black text-white"
                       : "text-gray-500 hover:bg-gray-50"
                   )}
                 >
@@ -193,7 +189,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                       "px-2 py-0.5 rounded-full text-[9px] font-bold transition-colors",
                       isSelected
                         ? "bg-white/20 text-white"
-                        : "bg-gray-100 group-hover:bg-[#003B5C] group-hover:text-white"
+                        : "bg-gray-100 group-hover:bg-black group-hover:text-white"
                     )}
                   >
                     {type.count}
@@ -208,7 +204,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   );
 
   return (
-    <div className="bg-[#E5E5E5] min-h-screen font-sans">
+    <div className={cn("bg-[#F0F0F0] min-h-screen", satoshi.className)}>
       <div className="flex relative">
         {/* Desktop Sidebar */}
         <aside className="hidden lg:block bg-white h-screen sticky top-0 w-64 border-r border-gray-200 z-40 overflow-y-auto hide-scrollbar">
@@ -247,16 +243,18 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               >
                 <Menu className="w-6 h-6 text-gray-600" />
               </button>
-              <div className="hidden sm:flex items-center space-x-2 lg:hidden">
-                <span className="text-xl font-black text-[#003B5C] italic">Arik</span>
+              <div className="flex sm:flex items-center space-x-2 lg:hidden">
+                <Link href="/" className={cn(integralCF.className, "text-xl font-bold text-black uppercase tracking-tight")}>
+                  SHOP.CO
+                </Link>
               </div>
             </div>
 
             <div className="flex items-center space-x-3 lg:space-x-6">
-              <button className="p-2 text-gray-400 hover:text-[#003B5C] transition-colors rounded-full hover:bg-gray-50">
+              <button className="p-2 text-gray-400 hover:text-black transition-colors rounded-full hover:bg-gray-50">
                 <Search className="w-5 h-5" />
               </button>
-              <button className="p-2 text-gray-400 hover:text-[#003B5C] transition-colors relative rounded-full hover:bg-gray-50">
+              <button className="p-2 text-gray-400 hover:text-black transition-colors relative rounded-full hover:bg-gray-50">
                 <Bell className="w-5 h-5" />
                 <span className="absolute top-2 right-2 w-2 h-2 bg-orange-500 rounded-full border-2 border-white" />
               </button>
@@ -268,8 +266,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             {children}
           </main>
 
-          <footer className="p-4 lg:p-8 pt-0 flex flex-col sm:flex-row justify-between items-center text-[9px] lg:text-[10px] text-gray-400 uppercase tracking-widest font-medium gap-4">
-            <div>© 2026 - Arik Dashboard</div>
+          <footer className="p-4 lg:p-8 pt-0 flex flex-col sm:flex-row justify-between items-center text-[9px] lg:text-[10px] text-gray-400 uppercase tracking-widest font-bold gap-4">
+            <div>© 2026 - SHOP.CO Dashboard</div>
             <div className="flex space-x-4 lg:space-x-6">
               <span className="hover:text-gray-600 cursor-pointer transition-colors">About</span>
               <span className="hover:text-gray-600 cursor-pointer transition-colors">Careers</span>

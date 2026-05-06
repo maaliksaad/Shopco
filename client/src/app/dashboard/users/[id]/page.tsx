@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'react-hot-toast';
+import { satoshi, integralCF } from "@/styles/fonts";
 
 export default function UserDetailsPage() {
     const { id } = useParams();
@@ -68,7 +69,7 @@ export default function UserDetailsPage() {
         return (
             <DashboardLayout>
                 <div className="flex items-center justify-center min-h-[400px]">
-                    <Loader2 className="w-10 h-10 animate-spin text-[#003B5C]" />
+                    <Loader2 className="w-10 h-10 animate-spin text-black" />
                 </div>
             </DashboardLayout>
         );
@@ -82,7 +83,7 @@ export default function UserDetailsPage() {
                     <h2 className="text-xl font-bold text-gray-900">User Not Found</h2>
                     <button
                         onClick={() => router.push('/dashboard/users')}
-                        className="mt-4 text-[#003B5C] font-bold uppercase text-xs tracking-widest flex items-center justify-center mx-auto"
+                        className="mt-4 text-black font-bold uppercase text-xs tracking-widest flex items-center justify-center mx-auto"
                     >
                         <ArrowLeft className="w-3 h-3 mr-2" /> Back to Users
                     </button>
@@ -96,11 +97,11 @@ export default function UserDetailsPage() {
             <div className="mb-8">
                 <button
                     onClick={() => router.push('/dashboard/users')}
-                    className="flex items-center text-xs font-bold text-gray-400 uppercase tracking-widest hover:text-[#003B5C] transition-colors mb-4"
+                    className="flex items-center text-xs font-bold text-gray-400 uppercase tracking-widest hover:text-black transition-colors mb-4"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back to Users
                 </button>
-                <h1 className="text-2xl font-bold text-gray-900">User Details</h1>
+                <h1 className={cn(integralCF.className, "text-2xl font-bold text-gray-900 uppercase")}>User Details</h1>
                 <div className="flex items-center text-xs text-gray-400 mt-1">
                     <span>Home</span>
                     <ChevronRight className="w-3 h-3 mx-1" />
@@ -162,7 +163,7 @@ export default function UserDetailsPage() {
                                         className={cn(
                                             "flex items-center justify-between p-4 rounded-xl border text-[11px] font-bold transition-all",
                                             user.role === role
-                                                ? "bg-[#003B5C] border-[#003B5C] text-white shadow-md"
+                                                ? "bg-black border-black text-white shadow-md"
                                                 : "bg-white border-gray-100 text-gray-600 hover:border-gray-200"
                                         )}
                                     >
@@ -230,7 +231,7 @@ export default function UserDetailsPage() {
                                 <label className="text-[10px] font-bold text-gray-400 uppercase flex items-center">
                                     <Shield className="w-3 h-3 mr-2" /> Current Role
                                 </label>
-                                <p className="text-[13px] font-black text-[#003B5C] uppercase">{user.role}</p>
+                                <p className="text-[13px] font-black text-black uppercase">{user.role}</p>
                             </div>
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-gray-400 uppercase flex items-center">
@@ -250,7 +251,7 @@ export default function UserDetailsPage() {
                                 <h3 className="text-xs font-black text-gray-900 uppercase tracking-widest">Order History</h3>
                                 <button
                                     onClick={() => router.push('/dashboard/orders')}
-                                    className="text-[10px] font-black text-[#003B5C] uppercase tracking-widest hover:underline"
+                                    className="text-[10px] font-black text-black uppercase tracking-widest hover:underline"
                                 >
                                     View All Orders
                                 </button>

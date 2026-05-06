@@ -7,6 +7,7 @@ import { ChevronRight, Loader2, MoreVertical, Calendar, ShoppingCart } from 'luc
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { toast } from 'react-hot-toast';
+import { satoshi, integralCF } from "@/styles/fonts";
 
 export default function OrdersListPage() {
     const { data: orders = [], isLoading } = useGetOrdersQuery(undefined);
@@ -81,7 +82,7 @@ export default function OrdersListPage() {
         <DashboardLayout>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Orders List</h1>
+                    <h1 className={cn(integralCF.className, "text-2xl font-bold text-gray-900 uppercase")}>Orders List</h1>
                     <div className="flex items-center text-xs text-gray-400 mt-1">
                         <span>Home</span>
                         <ChevronRight className="w-3 h-3 mx-1" />
@@ -97,7 +98,7 @@ export default function OrdersListPage() {
                     <select
                         onChange={(e) => handleBulkStatusChange(e.target.value)}
                         disabled={selectedOrderIds.length === 0 || isBulkUpdating}
-                        className="bg-white px-4 py-2 rounded-lg border border-gray-100 shadow-sm text-[10px] font-bold text-gray-500 uppercase outline-none focus:ring-1 focus:ring-[#003B5C] disabled:opacity-50"
+                        className="bg-white px-4 py-2 rounded-lg border border-gray-100 shadow-sm text-[10px] font-bold text-gray-500 uppercase outline-none focus:ring-1 focus:ring-black disabled:opacity-50"
                     >
                         <option>Change Status</option>
                         <option value="PAID">Paid</option>
@@ -120,7 +121,7 @@ export default function OrdersListPage() {
 
                 {isLoading ? (
                     <div className="flex flex-col items-center justify-center py-20">
-                        <Loader2 className="w-10 h-10 text-[#003B5C] animate-spin mb-4" />
+                        <Loader2 className="w-10 h-10 text-black animate-spin mb-4" />
                         <p className="text-gray-500 font-medium">Loading orders...</p>
                     </div>
                 ) : orders.length === 0 ? (
@@ -197,7 +198,7 @@ export default function OrdersListPage() {
                                                         {order.userId?.avatar ? (
                                                             <img src={order.userId.avatar} alt="" className="w-full h-full object-cover" />
                                                         ) : (
-                                                            <span className="text-[#003B5C] text-[10px] font-black">
+                                                            <span className="text-black text-[10px] font-black">
                                                                 {customerName.charAt(0).toUpperCase()}
                                                             </span>
                                                         )}

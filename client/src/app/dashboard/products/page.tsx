@@ -8,6 +8,7 @@ import { useProductsStore } from '@/store/useProductsStore';
 import { Plus, ChevronLeft, ChevronRight, Loader2, PackagePlus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { satoshi, integralCF } from "@/styles/fonts";
 
 export default function AllProductsPage() {
     const { page, limit, setPage, search, category, type, setSearch, setCategory, setType } = useProductsStore();
@@ -56,7 +57,7 @@ export default function AllProductsPage() {
                         className={cn(
                             "w-10 h-10 flex items-center justify-center rounded-lg text-xs font-bold transition-all",
                             p === page
-                                ? "bg-[#003B5C] text-white shadow-md"
+                                ? "bg-black text-white shadow-md"
                                 : "bg-white border border-gray-200 text-gray-500 hover:border-gray-300"
                         )}
                     >
@@ -83,7 +84,7 @@ export default function AllProductsPage() {
         <DashboardLayout>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">All Products</h1>
+                    <h1 className={cn(integralCF.className, "text-2xl font-bold text-gray-900 uppercase")}>All Products</h1>
                     <div className="flex items-center text-xs text-gray-400 mt-1">
                         <span>Home</span>
                         <ChevronRight className="w-3 h-3 mx-1" />
@@ -99,7 +100,7 @@ export default function AllProductsPage() {
 
             {isLoading ? (
                 <div className="flex flex-col items-center justify-center min-h-[400px]">
-                    <Loader2 className="w-12 h-12 text-[#003B5C] animate-spin mb-4" />
+                    <Loader2 className="w-12 h-12 text-black animate-spin mb-4" />
                     <p className="text-gray-500 font-medium">Loading products...</p>
                 </div>
             ) : products.length === 0 ? (
@@ -116,7 +117,7 @@ export default function AllProductsPage() {
                             useProductsStore.getState().setSearch('');
                             useProductsStore.getState().setCategory('');
                         }}
-                        className="text-[#003B5C] font-bold text-sm underline underline-offset-4"
+                        className="text-black font-bold text-sm underline underline-offset-4"
                     >
                         Clear all filters
                     </button>

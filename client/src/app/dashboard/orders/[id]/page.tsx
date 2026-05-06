@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'react-hot-toast';
+import { satoshi, integralCF } from "@/styles/fonts";
 
 export default function OrderDetailsPage() {
     const { id } = useParams();
@@ -50,7 +51,7 @@ export default function OrderDetailsPage() {
         return (
             <DashboardLayout>
                 <div className="flex flex-col items-center justify-center min-h-[600px]">
-                    <Loader2 className="w-12 h-12 text-[#003B5C] animate-spin mb-4" />
+                    <Loader2 className="w-12 h-12 text-black animate-spin mb-4" />
                     <p className="text-gray-500 font-medium tracking-wider uppercase text-xs">Fetching Order Details...</p>
                 </div>
             </DashboardLayout>
@@ -65,7 +66,7 @@ export default function OrderDetailsPage() {
                     <p className="text-gray-500 mb-8">The order you're looking for doesn't exist or you don't have access.</p>
                     <button
                         onClick={() => router.push('/dashboard/orders')}
-                        className="bg-[#003B5C] text-white px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-md"
+                        className="bg-black text-white px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition-all shadow-md"
                     >
                         Return to Orders
                     </button>
@@ -88,7 +89,7 @@ export default function OrderDetailsPage() {
         <DashboardLayout>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Orders Details</h1>
+                    <h1 className={cn(integralCF.className, "text-2xl font-bold text-gray-900 uppercase")}>Orders Details</h1>
                     <div className="flex items-center text-xs text-gray-400 mt-1">
                         <span>Home</span>
                         <ChevronRight className="w-3 h-3 mx-1" />
@@ -110,14 +111,14 @@ export default function OrderDetailsPage() {
 
                     <div className="flex flex-wrap items-center gap-3">
                         <div className="flex items-center bg-gray-50 px-4 py-2 rounded-lg border border-gray-100 text-[10px] font-bold text-gray-500 uppercase">
-                            <Calendar className="w-3 h-3 mr-2 text-[#003B5C]" />
+                            <Calendar className="w-3 h-3 mr-2 text-black" />
                             {date}
                         </div>
                         <select
                             value={order.status}
                             onChange={(e) => handleStatusChange(e.target.value)}
                             disabled={isUpdating}
-                            className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-[10px] font-bold text-gray-700 uppercase outline-none focus:ring-1 focus:ring-[#003B5C] min-w-[150px]"
+                            className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-[10px] font-bold text-gray-700 uppercase outline-none focus:ring-1 focus:ring-black min-w-[150px]"
                         >
                             <option value="PAID">Processing / Paid</option>
                             <option value="SHIPPED">Shipped</option>
@@ -128,7 +129,7 @@ export default function OrderDetailsPage() {
                             <Printer className="w-4 h-4" />
                         </button>
                         <RefundButton orderId={order._id} currentStatus={order.status} />
-                        <button className="bg-[#003B5C] text-white px-6 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all flex items-center shadow-lg">
+                        <button className="bg-black text-white px-6 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-gray-800 transition-all flex items-center shadow-lg">
                             <Save className="w-4 h-4 mr-2" />
                             Save
                         </button>
@@ -141,14 +142,14 @@ export default function OrderDetailsPage() {
 
                         <div className="flex items-start space-x-4">
                             <div className="w-12 h-12 bg-[#F0F2F5] rounded-xl flex items-center justify-center shrink-0">
-                                <User className="w-6 h-6 text-[#003B5C]" />
+                                <User className="w-6 h-6 text-black" />
                             </div>
                             <div className="flex-1 min-w-0">
                                 <h4 className="text-[12px] font-black text-gray-900 uppercase tracking-wider mb-2">Customer</h4>
                                 <p className="text-[13px] font-bold text-gray-700 truncate">{order.userId?.name || order.shippingAddress?.firstName}</p>
                                 <p className="text-[11px] text-gray-400 font-medium mb-3">{order.userId?.email || order.shippingAddress?.email}</p>
                                 <p className="text-[11px] text-gray-400 font-bold mb-4">{order.shippingAddress?.phone || '+91 800 123 4567'}</p>
-                                <button className="w-full py-2 bg-[#003B5C] text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-opacity-90 transition-all">View Profile</button>
+                                <button className="w-full py-2 bg-black text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-gray-800 transition-all">View Profile</button>
                             </div>
                         </div>
                     </div>
@@ -165,7 +166,7 @@ export default function OrderDetailsPage() {
                                 <p className="text-[11px] text-gray-400 font-bold flex justify-between mb-1">Shipping: <span className="text-gray-900">Next express</span></p>
                                 <p className="text-[11px] text-gray-400 font-bold flex justify-between mb-1">Payment: <span className="text-gray-900">Net banking/Paytm</span></p>
                                 <p className="text-[11px] text-gray-400 font-bold flex justify-between mb-4">Status: <span className="text-orange-500">{getStatusText(order.status)}</span></p>
-                                <button className="w-full py-2 bg-[#003B5C] text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-opacity-90 transition-all">Download Info</button>
+                                <button className="w-full py-2 bg-black text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-gray-800 transition-all">Download Info</button>
                             </div>
                         </div>
                     </div>
@@ -182,7 +183,7 @@ export default function OrderDetailsPage() {
                                 <p className="text-[11px] text-gray-900 font-bold leading-relaxed mb-4 line-clamp-2">
                                     {order.shippingAddress?.address || 'Kallurave Bharam Colony, Palani Vihar, Gurgaon, Haryana'}
                                 </p>
-                                <button className="w-full py-2 bg-[#003B5C] text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-opacity-90 transition-all">View Profile</button>
+                                <button className="w-full py-2 bg-black text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-gray-800 transition-all">View Profile</button>
                             </div>
                         </div>
                     </div>
@@ -207,7 +208,7 @@ export default function OrderDetailsPage() {
                             <h4 className="text-[12px] font-black text-gray-900 uppercase tracking-wider">Note</h4>
                         </div>
                         <textarea
-                            className="w-full h-16 bg-gray-50 border-none rounded-lg p-3 text-[11px] outline-none focus:ring-1 focus:ring-[#003B5C] resize-none"
+                            className="w-full h-16 bg-gray-50 border-none rounded-lg p-3 text-[11px] outline-none focus:ring-1 focus:ring-black resize-none"
                             placeholder="Type some notes"
                         ></textarea>
                     </div>

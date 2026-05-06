@@ -14,6 +14,7 @@ import { DashboardLayout } from "@/components/dashboard-page/DashboardLayout";
 import { ChevronRight, Upload, X, Check, Loader2 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { cn } from "@/lib/utils";
+import { satoshi, integralCF } from "@/styles/fonts";
 
 import { ProductCategory, ProductSize, DressStyle, ProductColor, ProductType, PurchaseType } from "@/types/product.types";
 
@@ -232,7 +233,7 @@ export default function ProductDetailsPage() {
         return (
             <DashboardLayout>
                 <div className="flex items-center justify-center min-h-[400px]">
-                    <Loader2 className="w-10 h-10 animate-spin text-[#003B5C]" />
+                    <Loader2 className="w-10 h-10 animate-spin text-black" />
                 </div>
             </DashboardLayout>
         );
@@ -250,7 +251,7 @@ export default function ProductDetailsPage() {
     return (
         <DashboardLayout>
             <div className="mb-8">
-                <h1 className="text-2xl font-bold text-gray-900">Product Details</h1>
+                <h1 className={cn(integralCF.className, "text-2xl font-bold text-gray-900 uppercase")}>Product Details</h1>
                 <div className="flex items-center text-xs text-gray-400 mt-1">
                     <span>Home</span>
                     <ChevronRight className="w-3 h-3 mx-1" />
@@ -269,7 +270,7 @@ export default function ProductDetailsPage() {
                                 <input
                                     {...register("name")}
                                     className={cn(
-                                        "w-full px-4 py-3 rounded-lg border text-sm transition-all focus:ring-1 focus:ring-[#003B5C]",
+                                        "w-full px-4 py-3 rounded-lg border text-sm transition-all focus:ring-1 focus:ring-black",
                                         errors.name ? "border-red-500" : "border-gray-200"
                                     )}
                                     placeholder="Enter product name"
@@ -284,7 +285,7 @@ export default function ProductDetailsPage() {
                                 {...register("description")}
                                 rows={4}
                                 className={cn(
-                                    "w-full px-4 py-3 rounded-lg border text-sm transition-all focus:ring-1 focus:ring-[#003B5C]",
+                                    "w-full px-4 py-3 rounded-lg border text-sm transition-all focus:ring-1 focus:ring-black",
                                     errors.description ? "border-red-500" : "border-gray-200"
                                 )}
                                 placeholder="Enter product description"
@@ -297,7 +298,7 @@ export default function ProductDetailsPage() {
                                 <label className="block text-[11px] font-bold text-gray-900 uppercase mb-1.5 px-1">Category</label>
                                 <select
                                     {...register("category")}
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-[#003B5C] bg-white capitalize"
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-black bg-white capitalize"
                                 >
                                     {Object.values(ProductCategory).map(cat => (
                                         <option key={cat} value={cat}>{cat.replace(/-/g, ' ')}</option>
@@ -308,7 +309,7 @@ export default function ProductDetailsPage() {
                                 <label className="block text-[11px] font-bold text-gray-900 uppercase mb-1.5 px-1">Dress Style</label>
                                 <select
                                     {...register("dressStyle")}
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-[#003B5C] bg-white capitalize"
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-black bg-white capitalize"
                                 >
                                     {Object.values(DressStyle).map(style => (
                                         <option key={style} value={style}>{style}</option>
@@ -319,7 +320,7 @@ export default function ProductDetailsPage() {
                                 <label className="block text-[11px] font-bold text-gray-900 uppercase mb-1.5 px-1">Product Type</label>
                                 <select
                                     {...register("type")}
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-[#003B5C] bg-white capitalize"
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-black bg-white capitalize"
                                 >
                                     {Object.values(ProductType).map(type => (
                                         <option key={type} value={type}>{type.replace(/-/g, ' ')}</option>
@@ -333,7 +334,7 @@ export default function ProductDetailsPage() {
                                 <label className="block text-[11px] font-bold text-gray-900 uppercase mb-1.5 px-1">Brand Name</label>
                                 <input
                                     {...register("brand")}
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-[#003B5C]"
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-black"
                                     placeholder="e.g. Adidas"
                                 />
                             </div>
@@ -341,7 +342,7 @@ export default function ProductDetailsPage() {
                                 <label className="block text-[11px] font-bold text-gray-900 uppercase mb-1.5 px-1">SKU (Auto-Generated)</label>
                                 <input
                                     {...register("sku")}
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-[#003B5C]"
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:ring-1 focus:ring-black"
                                     placeholder="Leave empty to auto-generate"
                                 />
                             </div>
@@ -354,7 +355,7 @@ export default function ProductDetailsPage() {
                                     type="number"
                                     {...register("stock")}
                                     className={cn(
-                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-[#003B5C]",
+                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-black",
                                         errors.stock ? "border-red-500" : "border-gray-200"
                                     )}
                                 />
@@ -365,7 +366,7 @@ export default function ProductDetailsPage() {
                                     type="number"
                                     {...register("totalStock")}
                                     className={cn(
-                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-[#003B5C]",
+                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-black",
                                         errors.totalStock ? "border-red-500" : "border-gray-200"
                                     )}
                                 />
@@ -380,7 +381,7 @@ export default function ProductDetailsPage() {
                                     {...register("price")}
                                     disabled={isPointsOnly}
                                     className={cn(
-                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-[#003B5C]",
+                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-black",
                                         errors.price ? "border-red-500" : "border-gray-200",
                                         isPointsOnly && "bg-gray-50 opacity-50"
                                     )}
@@ -394,7 +395,7 @@ export default function ProductDetailsPage() {
                                     {...register("pointsPrice")}
                                     disabled={!isPointsOnly && !isHybrid}
                                     className={cn(
-                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-[#003B5C]",
+                                        "w-full px-4 py-3 rounded-lg border text-sm focus:ring-1 focus:ring-black",
                                         errors.pointsPrice ? "border-red-500" : "border-gray-200",
                                         (!isPointsOnly && !isHybrid) && "bg-gray-50 opacity-50"
                                     )}
@@ -408,7 +409,7 @@ export default function ProductDetailsPage() {
                                         type="checkbox"
                                         {...register("isOnSale")}
                                         disabled={isPointsOnly}
-                                        className="w-4 h-4 rounded border-gray-300 text-[#003B5C] focus:ring-[#003B5C]"
+                                        className="w-4 h-4 rounded border-gray-300 text-black focus:ring-black"
                                     />
                                     <span className="text-[11px] font-bold text-gray-900 uppercase">On Sale</span>
                                 </label>
@@ -418,7 +419,7 @@ export default function ProductDetailsPage() {
                                         {...register("salePrice")}
                                         disabled={!isOnSale || isPointsOnly}
                                         className={cn(
-                                            "w-full px-4 py-3 rounded-lg border text-sm transition-all focus:ring-1 focus:ring-[#003B5C]",
+                                            "w-full px-4 py-3 rounded-lg border text-sm transition-all focus:ring-1 focus:ring-black",
                                             (!isOnSale || isPointsOnly) ? "bg-gray-50 border-gray-100 text-gray-400" : "border-gray-200"
                                         )}
                                         placeholder={isOnSale ? "Enter sale price" : "Enable On Sale"}
@@ -437,21 +438,21 @@ export default function ProductDetailsPage() {
                     </div>
 
                     <div className="bg-violet-50/50 p-6 rounded-2xl border border-violet-100 space-y-4 mt-6">
-                        <h3 className="text-xs font-bold text-[#003B5C] uppercase tracking-widest flex items-center">
+                        <h3 className="text-xs font-bold text-black uppercase tracking-widest flex items-center">
                             <div className="w-2 h-2 bg-violet-500 rounded-full mr-2" />
                             Payment Strategy & Loyalty
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <label className={cn(
                                 "flex flex-col p-4 border rounded-xl cursor-pointer transition-all",
-                                watch("purchaseType") === PurchaseType.MONEY_ONLY ? "bg-white border-[#003B5C] shadow-sm" : "bg-white/50 border-gray-100 opacity-60"
+                                watch("purchaseType") === PurchaseType.MONEY_ONLY ? "bg-white border-black shadow-sm" : "bg-white/50 border-gray-100 opacity-60"
                             )}>
                                 <div className="flex justify-between items-start mb-2">
                                     <input
                                         {...register("purchaseType")}
                                         type="radio"
                                         value={PurchaseType.MONEY_ONLY}
-                                        className="w-4 h-4 text-[#003B5C]"
+                                        className="w-4 h-4 text-black"
                                     />
                                     <div className="text-[9px] font-black uppercase tracking-tighter text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Money Only</div>
                                 </div>
@@ -461,14 +462,14 @@ export default function ProductDetailsPage() {
 
                             <label className={cn(
                                 "flex flex-col p-4 border rounded-xl cursor-pointer transition-all",
-                                watch("purchaseType") === PurchaseType.POINTS_ONLY ? "bg-white border-[#003B5C] shadow-sm" : "bg-white/50 border-gray-100 opacity-60"
+                                watch("purchaseType") === PurchaseType.POINTS_ONLY ? "bg-white border-black shadow-sm" : "bg-white/50 border-gray-100 opacity-60"
                             )}>
                                 <div className="flex justify-between items-start mb-2">
                                     <input
                                         {...register("purchaseType")}
                                         type="radio"
                                         value={PurchaseType.POINTS_ONLY}
-                                        className="w-4 h-4 text-[#003B5C]"
+                                        className="w-4 h-4 text-black"
                                     />
                                     <div className="text-[9px] font-black uppercase tracking-tighter text-violet-600 bg-violet-50 px-2 py-0.5 rounded">Points Only</div>
                                 </div>
@@ -478,14 +479,14 @@ export default function ProductDetailsPage() {
 
                             <label className={cn(
                                 "flex flex-col p-4 border rounded-xl cursor-pointer transition-all",
-                                watch("purchaseType") === PurchaseType.HYBRID ? "bg-white border-[#003B5C] shadow-sm" : "bg-white/50 border-gray-100 opacity-60"
+                                watch("purchaseType") === PurchaseType.HYBRID ? "bg-white border-black shadow-sm" : "bg-white/50 border-gray-100 opacity-60"
                             )}>
                                 <div className="flex justify-between items-start mb-2">
                                     <input
                                         {...register("purchaseType")}
                                         type="radio"
                                         value={PurchaseType.HYBRID}
-                                        className="w-4 h-4 text-[#003B5C]"
+                                        className="w-4 h-4 text-black"
                                     />
                                     <div className="text-[9px] font-black uppercase tracking-tighter text-orange-600 bg-orange-50 px-2 py-0.5 rounded">Hybrid</div>
                                 </div>
@@ -507,7 +508,7 @@ export default function ProductDetailsPage() {
                                         className={cn(
                                             "px-3 py-1.5 rounded-full text-[10px] font-bold border transition-all",
                                             (selectedColors as string[]).includes(color)
-                                                ? "bg-[#003B5C] text-white border-[#003B5C] shadow-sm"
+                                                ? "bg-black text-white border-black shadow-sm"
                                                 : "bg-white text-gray-500 border-gray-200 hover:border-gray-300"
                                         )}
                                     >
@@ -528,7 +529,7 @@ export default function ProductDetailsPage() {
                                         className={cn(
                                             "px-3 py-1.5 rounded-full text-[10px] font-bold border transition-all",
                                             (selectedSizes as string[]).includes(size)
-                                                ? "bg-[#003B5C] text-white border-[#003B5C] shadow-sm"
+                                                ? "bg-black text-white border-black shadow-sm"
                                                 : "bg-white text-gray-500 border-gray-200 hover:border-gray-300"
                                         )}
                                     >
@@ -580,7 +581,7 @@ export default function ProductDetailsPage() {
                                 type="button"
                                 onClick={handleDelete}
                                 disabled={isDeleting}
-                                className="px-8 bg-[#003B5C] text-white py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-[#002B44] transition-all flex items-center justify-center disabled:opacity-50"
+                                className="px-8 bg-black text-white py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-[#002B44] transition-all flex items-center justify-center disabled:opacity-50"
                             >
                                 {isDeleting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : "Delete"}
                             </button>
@@ -612,10 +613,10 @@ export default function ProductDetailsPage() {
                         <div className="space-y-4">
                             <h3 className="text-xs font-bold text-gray-900 uppercase">Product Gallery</h3>
 
-                            <label className="block w-full border-2 border-dashed border-gray-200 rounded-xl p-8 hover:border-[#003B5C] transition-colors cursor-pointer text-center">
+                            <label className="block w-full border-2 border-dashed border-gray-200 rounded-xl p-8 hover:border-black transition-colors cursor-pointer text-center">
                                 <input type="file" multiple className="hidden" onChange={handleImageChange} accept="image/*" />
                                 <Upload className="w-8 h-8 mx-auto text-gray-300 mb-2" />
-                                <p className="text-[11px] text-gray-400">Drop your images here, or <span className="text-[#003B5C] font-bold">browse</span></p>
+                                <p className="text-[11px] text-gray-400">Drop your images here, or <span className="text-black font-bold">browse</span></p>
                                 <p className="text-[9px] text-gray-200 mt-1">jpeg, png are allowed (max 3 total)</p>
                             </label>
 

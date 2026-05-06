@@ -73,7 +73,7 @@ export const BestSellers = () => {
             </div>
 
             <div className="mt-6 pt-4 border-t border-gray-50">
-                <button className="w-auto px-6 py-2 bg-[#003B5C] text-white text-xs font-bold rounded-md hover:bg-[#002B44] transition-colors uppercase tracking-wider">
+                <button className="w-auto px-6 py-2 bg-black text-white text-xs font-bold rounded-md hover:bg-gray-800 transition-colors uppercase tracking-wider">
                     Report
                 </button>
             </div>

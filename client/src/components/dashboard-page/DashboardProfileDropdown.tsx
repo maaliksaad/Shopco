@@ -43,7 +43,7 @@ const DashboardProfileDropdown = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center space-x-2 lg:space-x-3 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg px-2 lg:px-3 py-1.5 border border-gray-100 cursor-pointer outline-none shadow-sm active:scale-95 duration-200"
             >
-                <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-[#003B5C]/10 flex items-center justify-center overflow-hidden border border-[#003B5C]/20">
+                <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-black/10 flex items-center justify-center overflow-hidden border border-black/20">
                     {profile?.avatar ? (
                         <Image
                             src={profile.avatar}
@@ -53,7 +53,7 @@ const DashboardProfileDropdown = () => {
                             className="w-full h-full object-cover"
                         />
                     ) : (
-                        <User className="w-3 h-3 lg:w-4 lg:h-4 text-[#003B5C]" />
+                        <User className="w-3 h-3 lg:w-4 lg:h-4 text-black" />
                     )}
                 </div>
                 <span className="text-[10px] lg:text-xs font-bold text-gray-700 uppercase tracking-wider">
