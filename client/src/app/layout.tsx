@@ -4,6 +4,7 @@ import { satoshi } from "@/styles/fonts";
 import Providers from "./providers";
 import { Toaster } from 'react-hot-toast';
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
+import ServerWarningModal from "@/components/common/ServerWarningModal";
 
 export const metadata: Metadata = {
   title: "Shopco",
@@ -26,6 +27,7 @@ export default function RootLayout({
           <LayoutWrapper>
             {children}
           </LayoutWrapper>
+          <ServerWarningModal />
         </Providers>
         <Toaster
           position="top-right"
