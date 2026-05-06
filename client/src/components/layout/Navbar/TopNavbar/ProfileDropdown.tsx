@@ -19,7 +19,7 @@ const ProfileDropdown = () => {
     const handleLogout = () => {
         logout();
         setIsOpen(false);
-        router.push('/');
+        window.location.href = '/';
     };
 
     const handleNavigation = (path: string) => {

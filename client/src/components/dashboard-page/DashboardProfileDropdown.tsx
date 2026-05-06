@@ -18,7 +18,7 @@ const DashboardProfileDropdown = () => {
     const handleLogout = () => {
         logout();
         setIsOpen(false);
-        router.push('/login');
+        window.location.href = '/login';
     };
 
     const handleNavigation = (path: string) => {

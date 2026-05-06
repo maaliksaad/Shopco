@@ -18,7 +18,7 @@ export const useAuthSession = () => {
             // We might need to fetch the user profile separately if it's not in the response
             // Let's assume the response has some basic user info or we use getMe later
             setAuth(response.user || { email: credentials.email }, response.accessToken);
-            router.push('/dashboard');
+            window.location.href = '/dashboard';
         } catch (error) {
             console.error('Login failed:', error);
             throw error;
@@ -39,7 +39,7 @@ export const useAuthSession = () => {
         logout();
         // Reset RTK Query cache on logout
         dispatch(baseApi.util.resetApiState());
-        router.push('/login');
+        window.location.href = '/login';
     };
 
     return {

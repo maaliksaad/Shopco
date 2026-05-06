@@ -27,7 +27,7 @@ export default function AuthCallbackPage() {
         if (isSuccess && userData) {
             setAuth(userData, token);
             toast.success("Welcome back! 👋");
-            router.push("/dashboard");
+            window.location.href = "/dashboard";
         }
 
         if (isError) {
